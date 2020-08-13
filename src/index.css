@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+.home .post img{
+  position: absolute;
+  top: 10px;
+  left:-5vw;
+  opacity: 0.6;
+}
+
+.home .post{
+  overflow: hidden;
+  padding-left: 80px;
+}
