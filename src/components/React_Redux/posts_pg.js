@@ -52,7 +52,10 @@ class Concept1 extends Component{
         return(
             <div className="container home">
                 <h1>Posts</h1>
-                <p>To learn React with Redux. </p>
+                <p>
+                    To learn React with Redux. React Redux is the official React binding for Redux. It allows React components to read data from a Redux Store, and dispatch Actions to the Store to update data. 
+                    Here it displays some posts. Allows us to get the details of the post and can also delete the post.
+                </p>
                 {postList}
             </div>
         );

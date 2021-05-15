@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../images/books.jpeg';
+import logo from '../images/books.jpg';
 import '../App.css';
 
 class Welcome extends React.Component{
