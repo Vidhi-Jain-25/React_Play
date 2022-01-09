@@ -1,0 +1,22 @@
+
+// {/* <Newcomp /> */}
+//         {/* nesting of hard coded new component. cant use props as props is empty*/}
+          
+    // const{}= (this.props); //writing this or not ...its same!!
+    // can access using this.props.name and this.props.age ->in curly brackets in return and simply here.
+    // console.log({this.props.name})  //error
+
+    // const{name,age}= this.props;
+    // can access props by just name and this.props.name-> here & by just {name} in return(), dont need to write {this.props.name}......whereas both r correct
+    // console.log({name})    // Object { name: given }
+    // console.log({this.props.name})   //error..cant use
+     
+    // const { newarr } = this.props;
+    // const newarr=this.props.newarr;    // this is same as upside given .
+    // console.log(newarr);
+    // newarr is an array of objects...so note this could not directly be written down in render method as {newarr} to display array on browser
+    
+
+
+const Todos = ({todos, deleteTodo}) => {  }    //functional comp
+//  const { newarr, delobject } = this.props;  //for class based components

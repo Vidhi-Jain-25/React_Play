@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Basics</title>
+    <!-- Packages  ie 3 CDN links--> 
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>                        
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- the first two let us write React code in our JavaScripts, and the third, Babel, allows us to write JSX syntax and ES6 in older browsers. -->
+
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        class App extends React.Component {
+
+            // In React, component properties should be kept in an object called state
+            state = {
+                name: 'Ryu',
+                age: 30
+            } 
+
+            // constructor() function called when the component gets initiated.
+            // constructor() {
+            //     super();  //access to parent components fns and call its constructor
+            //     this.state = {color: "red"};
+            // }
+
+            handleChange = (e) => {
+                this.setState({
+                    name: e.target.value
+                })
+            }
+            handleSubmit = (e) => {
+                e.preventDefault(); //prevent default action of submit button to refresh the page
+                console.log('form submitted by', this.state.name);
+            }
+            handleClick = (e) => {
+                console.log(e.target);
+                console.log(this.state);
+                this.setState(
+                    {
+                        name: 'vidd',
+                        age: 35
+                    },
+                    ()=> {
+                        console.log(this.state); //gives updated state
+                    }
+                );
+                console.log(this.state); 
+                // setState is asynchronous. You can use callback method to get updated state. 
+                // The setState() operation is asynchronous and hence your console.log() will be executed before the setState() mutates the values 
+                // and hence you see the result as not updated state.
+
+            }
+            handleMouseOver(e) {
+                console.log(e.target, e.pageX);
+            }
+            handleCopy(e) {
+                console.log('try being original');
+            }
+
+            //called bydefault when component file is called or when the state of the comp get altered.
+            //must return something...it may be null
+            render() {
+                return (
+                    <div className="app-content">
+                        <h1>hello</h1>
+                        <h1>My name is {this.state.name} and I am {this.state.age}</h1>
+                        <p>{Math.random() * 10}</p>
+                        <button onClick={this.handleClick} >Click me</button>
+                        <button onMouseOver={this.handleMouseOver}>hover me </button>
+                        <p onCopy={this.handleCopy}>hii   copiers</p>
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" onChange={this.handleChange} />
+                            <button>Submit</button>
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+        // Display the component in the root element. ie renders JSX to the web page
+        //here the root comp is app.
+
+    </script>
+
+</body>
+
+</html>
